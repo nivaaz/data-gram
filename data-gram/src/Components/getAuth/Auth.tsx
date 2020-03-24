@@ -4,11 +4,16 @@ import {PrimaryButton} from '../PrimaryButton/PrimaryButton';
 import {Input} from '../Input/Input';
 
 export const Auth = () => {
-  return (
+    const clicker =()=>{
+        console.log("Hi I was clicked")
+    }
+    return (
     <div className="Auth">
         <h1> Auth component</h1>
         <Input/>
-        <PrimaryButton text= 'Add Auth'/>
+        <PrimaryButton 
+        onClickFunction = {clicker}
+        text= 'Add Auth'/>
     </div>
   );
 }
