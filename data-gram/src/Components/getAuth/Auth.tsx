@@ -1,21 +1,42 @@
-import React from 'react';
+import React, { MouseEvent, useState, ChangeEvent} from 'react';
 import './Auth.css';
-import {PrimaryButton} from '../PrimaryButton/PrimaryButton';
-import {Input} from '../Input/Input';
 
-export const Auth = () => {
-    const clicker =()=>{
-        console.log("Hi I was clicked")
+type Props ={
+    auth: string
+};
+
+export class Auth extends React.PureComponent<{}, Props> {
+    constructor(props: Props){
+        super(props);
+        this.state = {
+            auth: ' '
+        }
+        
     }
-    return (
-    <div className="Auth">
-        <h1> Auth component</h1>
-        <Input/>
-        <PrimaryButton 
-        onClickFunction = {clicker}
-        text= 'Add Auth'/>
-    </div>
-  );
+    
+    buts(event: MouseEvent){
+        event.preventDefault();
+        console.log(event)
+    }
+    onChangeHandle(event:React.KeyboardEvent){
+        // const name = this.state.auth;
+        const value = (event.target as HTMLInputElement).value;
+       console.log(value)
+       this.setState({ auth: value });
+    }
+    render (){
+        return (
+            <div className="Auth">
+                <h1> Yo Auth is {this.state.auth}</h1>
+                <input 
+                    type="text"
+                    onKeyUp={(e)=>{this.onChangeHandle(e)}}
+                />
+                <button onClick={this.buts}>
+                    A button 
+                    </button> 
+            </div>
+  );}
 }
 
 
