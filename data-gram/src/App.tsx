@@ -6,6 +6,8 @@
   RouteComponentProps
 } from "react-router-dom";
 
+import {Landing} from './Pages/landing/Landing';
+
   function Index() {
     return <h2>Home</h2>;
   }
@@ -34,7 +36,7 @@ function Product({ match }: RouteComponentProps<TParams>) {
            </ul>
          </nav>
  
-         <Route path="/" exact component={Index} />
+         <Route path="/" exact component={Landing} />
          <Route path="/products/:id" component={Product} />
        </div>
      </Router>
